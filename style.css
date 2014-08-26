@@ -25,6 +25,8 @@ h1 {
     background: #eee;
     border:1px solid #eee;
     box-sizing: border-box;
+    width:auto;
+    height: auto;
 }
 
 img {

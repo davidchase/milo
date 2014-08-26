@@ -1,15 +1,8 @@
 'use strict';
-var Bloccs = require('./index');
-var debounce = require('./lib/debounce');
+var Milo = require('./milo');
 
-var blocs = new Bloccs({
-    container: '.grid',
-    gridSize: 250,
-    gridGutter: 13
+var milo = new Milo({
+    container: '.grid'
 });
 
-var resizeWindow = function() {
-    blocs.reflowContent();
-};
-
-window.addEventListener('resize', debounce(resizeWindow, 500));
+window.addEventListener('load', milo.buildGrid);
