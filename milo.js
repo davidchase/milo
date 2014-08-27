@@ -8,15 +8,25 @@ var MiloGrid = function(options) {
     }
     this.containerEl = qs(options.container);
     this.children = this.containerEl.children;
-    this.margin = options.margin || 10;
-    this.width = options.width || 210;
+    this.gridItemMargin = options.margin || 10;
+    this.gridItemWidth = options.width || 210;
 
     this._resizeBind();
 };
 var MiloGridProto = MiloGrid.prototype;
 
 MiloGridProto._calcTopPosition = function(index) {
-    return index >= this.containerGrids ? this.topOffset[index - this.containerGrids] : 0;
+    return index >= this.gridColumns ? this.topOffset[index - this.gridColumns] : 0;
+};
+
+MiloGridProto._calcGridColumns = function() {
+    // to calculate the columns
+    // get the current available width
+    // then divide it by gridItem width + gridItem margin
+    // we are using Math.floor to get the lowest possible
+    // amount of columns to fit into the area allocated
+    this.containerWidth = this.containerEl.clientWidth;
+    this.gridColumns = Math.floor((this.containerWidth / (this.gridItemWidth + this.gridItemMargin)));
 };
 
 MiloGridProto.buildGrid = function() {
@@ -25,18 +35,16 @@ MiloGridProto.buildGrid = function() {
     // clean array before each build
     this.topOffset = [];
 
-    this.containerWidth = this.containerEl.clientWidth;
-    this.containerSpace = (this.containerWidth % (this.width + this.margin));
-    this.containerGrids = (this.containerWidth - this.containerSpace) / (this.width + this.margin);
+    this._calcGridColumns();
 
     for (idx; idx < length; idx++) {
         this.children[idx].style.cssText =
-            'margin:' + this.margin / 2 + ';' +
+            'margin:' + this.gridItemMargin / 2 + ';' +
             'top:' + this._calcTopPosition(idx) + ';' +
-            'left:' + (this.width + this.margin) * Math.round(idx % this.containerGrids) + ';' +
-            'width:' + this.width + ';';
+            'left:' + (this.gridItemWidth + this.gridItemMargin) * Math.round(idx % this.gridColumns) + ';' +
+            'width:' + this.gridItemWidth + ';';
 
-        this.topOffset.push(this.children[idx].offsetHeight + this.margin + this.children[idx].offsetTop);
+        this.topOffset.push(this.children[idx].offsetHeight + this.gridItemMargin + this.children[idx].offsetTop);
     }
 };
 
@@ -52,12 +60,13 @@ MiloGridProto._resizeBind = function() {
     var rebuildGrid = function() {
         this.buildGrid();
     }.bind(this);
+
     // debounce the window resize
     // to minimize the amount of rebuild calls
     window.addEventListener('resize', debounce(rebuildGrid, 600));
 };
 
-
+// expose a public api
 var Milo = function(options) {
     var miloGrid = new MiloGrid(options);
     this.buildGrid = miloGrid.buildGrid.bind(miloGrid);
