@@ -8,11 +8,9 @@ var MiloGrid = function(options) {
     }
     this.containerEl = qs(options.container);
     this.children = this.containerEl.children;
-    this.margin = options.margin || 6;
-    this.padding = options.padding || 10;
-    this.width = options.width || 220;
+    this.margin = options.margin || 10;
+    this.width = options.width || 210;
 
-    // this.buildGrid();
     this._resizeBind();
 };
 var MiloGridProto = MiloGrid.prototype;
@@ -34,7 +32,6 @@ MiloGridProto.buildGrid = function() {
     for (idx; idx < length; idx++) {
         this.children[idx].style.cssText =
             'margin:' + this.margin / 2 + ';' +
-            'padding:' + this.padding + ';' +
             'top:' + this._calcTopPosition(idx) + ';' +
             'left:' + (this.width + this.margin) * Math.round(idx % this.containerGrids) + ';' +
             'width:' + this.width + ';';
