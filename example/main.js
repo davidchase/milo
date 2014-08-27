@@ -1,5 +1,5 @@
 'use strict';
-var Milo = require('./milo');
+var Milo = require('../milo');
 
 var milo = new Milo({
     container: '.grid'

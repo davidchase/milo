@@ -21,3 +21,15 @@ var milo = new Milo({
 
 window.addEventListener('load', milo.buildGrid);
 ```
+
+HTML can be formatted like so:
+
+```html
+<div class="grid">
+    <div class="grid-item">...</div>
+    <div class="grid-item">...</div>
+    <div class="grid-item">...</div>
+    <div class="grid-item">...</div>
+    ...
+</div>
+```
