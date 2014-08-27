@@ -7,6 +7,9 @@ A small pure javascript grid that provides as a nice fallback to browsers
 that don't currently support column-count such as IE8, IE9
 
 Simple usage:
+-------------
+
+Check out the [**demo**](https://rawgit.com/davidchase/milo/master/example/index.html)
 
 Use [browserify](http://browserify.org) for client commonjs `require`
 
