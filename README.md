@@ -9,7 +9,7 @@ that don't currently support column-count such as IE8, IE9
 Simple usage:
 -------------
 
-Check out the [**demo**](https://rawgit.com/davidchase/milo/master/example/index.html)
+Check out the [**demo**](https://rawgit.com/davidchase/milo/freepeoples/example/index.html)
 
 Use [browserify](http://browserify.org) for client commonjs `require`
 
