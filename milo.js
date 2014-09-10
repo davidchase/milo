@@ -1,7 +1,7 @@
 'use strict';
 
-var qs = document.querySelector.bind(document);
 var debounce = require('./lib/debounce');
+var qs = document.querySelector.bind(document);
 var MiloGrid = function(options) {
     if (!options || typeof options !== 'object') {
         throw new Error('Need to add at least a container');
