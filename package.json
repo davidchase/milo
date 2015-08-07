@@ -1,23 +1,23 @@
 {
-  "name": "bloccs",
-  "version": "0.0.2",
+  "name": "milo",
+  "version": "1.0.0",
   "description": "Javascript Grid fallback for browsers that dont support column-count",
-  "main": "index.js",
-  "scripts": {
-    "test": "tape"
+  "main": "milo.js",
+  "directories": {
+    "example": "example"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidchase/bloccs.git"
+    "url": "git+https://github.com/davidchase/milo.git"
   },
   "keywords": [
     "grid",
     "css3"
   ],
-  "author": "David Annopolsky",
+  "author": "David Chase",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davidchase/bloccs/issues"
+    "url": "https://github.com/davidchase/milo/issues"
   },
-  "homepage": "https://github.com/davidchase/bloccs"
+  "homepage": "https://github.com/davidchase/milo#readme"
 }
