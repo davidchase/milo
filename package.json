@@ -1,5 +1,5 @@
 {
-  "name": "milo",
+  "name": "milo-grid",
   "version": "1.0.0",
   "description": "Javascript Grid fallback for browsers that dont support column-count",
   "main": "milo.js",
@@ -12,7 +12,8 @@
   },
   "keywords": [
     "grid",
-    "css3"
+    "columns",
+    "grid-support"
   ],
   "author": "David Chase",
   "license": "MIT",
