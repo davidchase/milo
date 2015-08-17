@@ -77,10 +77,10 @@ MiloGridProto.buildGrid = function() {
 
     for (idx; idx < length; idx++) {
         this.children[idx].style.cssText =
-            'margin:' + this.gridItemMargin / 2 + ';' +
-            'top:' + this._calcTopPosition(idx) + ';' +
-            'left:' + (this.gridItemWidth + this.gridItemMargin) * Math.round(idx % this.gridColumns) + ';' +
-            'width:' + this.gridItemWidth + ';';
+            'margin:' + this.gridItemMargin / 2 + 'px;' +
+            'top:' + this._calcTopPosition(idx) + 'px;' +
+            'left:' + (this.gridItemWidth + this.gridItemMargin) * Math.round(idx % this.gridColumns) + 'px;' +
+            'width:' + this.gridItemWidth + 'px;';
 
         this.topOffset.push(this.children[idx].offsetHeight + this.gridItemMargin + this.children[idx].offsetTop);
     }
