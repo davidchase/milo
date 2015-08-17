@@ -1,6 +1,6 @@
 {
   "name": "milo-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript Grid fallback for browsers that dont support column-count",
   "main": "milo.js",
   "directories": {
